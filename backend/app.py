@@ -8,7 +8,7 @@ import shap
 app = Flask(__name__)
 CORS(app)
 
-# Load the trained model
+# Load the trained model from file
 model = joblib.load('model/loan_default_model.pkl')
 
 @app.route('/predict', methods=['POST'])
@@ -22,7 +22,8 @@ def predict():
         print("Received data:", input_data)
 
         input_df = pd.DataFrame([input_data])
-
+        
+        # Convert categorical columns to numeric
         numeric_cols = ['Age', 'Income', 'LoanAmount', 'CreditScore', 'MonthsEmployed',
                         'NumCreditLines', 'InterestRate', 'LoanTerm', 'DTIRatio',
                         'Education', 'EmploymentType', 'MaritalStatus',

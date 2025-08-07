@@ -14,10 +14,11 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip);
 const SHAPBarChart = ({ shapValues }) => {
   const sortedEntries = Object.entries(shapValues)
     .sort((a, b) => Math.abs(b[1]) - Math.abs(a[1]))
-    // .slice(0, 15); // Top 10 impactful features
+    // .slice(0, 10); // Top 10 impactful features
 
   const labels = sortedEntries.map(([key]) => key);
   const values = sortedEntries.map(([_, val]) => val);
+
 
   const data = {
     labels,
@@ -30,6 +31,7 @@ const SHAPBarChart = ({ shapValues }) => {
     ]
   };
 
+  // Chart options
   const options = {
     indexAxis: "y",
     responsive: true,

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import SHAPBarChart from "./SHAPBarChart";
 
+// LoanForm component for collecting user input and displaying predictions
 const LoanForm = () => {
   const [formData, setFormData] = useState({
     Age: "",
@@ -22,18 +23,22 @@ const LoanForm = () => {
     HasCoSigner: ""
   });
 
-
+  // State for prediction and SHAP values
     const [prediction, setPrediction] = useState("");
     const [shapValues, setShapValues] = useState({});
     const [errors, setErrors] = useState({});
     const [isLoading, setIsLoading] = useState(false); 
 
+  // Options for dropdowns
+  // These options can be modified based on your requirements
 
   const educationOptions = ["High School", "Bachelor's Degree", "Master's Degree"];
   const employmentOptions = ["Full-time", "Unemployed"];
   const maritalStatusOptions = ["Single", "Married", "Divorced"];
   const loanPurposeOptions = ["Other", "Business", "Education", "Home"];
 
+  // Function to validate each field
+  // This function checks if the input is valid and returns an error message if not
   const validateField = (name, value) => {
     const num = parseFloat(value);
     if (value === "") return "Required";
@@ -107,6 +112,7 @@ const LoanForm = () => {
       }
     };
 
+  // Render the form and prediction result
   return (
     <div  style={{ fontFamily: "Inter, sans-serif", padding: "40px 20px", background: "linear-gradient(to right, #eef2f3, #8e9eab)", minHeight: "100vh" }}>
     {/* Header */}
@@ -279,6 +285,7 @@ const LoanForm = () => {
         }}>
             <h3>SHAP Feature Contributions</h3>
             <p style={{ fontSize: "0.9em", color: "#555" }}>
+              {/* SHAP values provide insights into how each feature contributes to the prediction.*/}
                 SHAP (SHapley Additive exPlanations) values explain the impact of each feature on the prediction. 
                 Positive values pushes the prediction towards HIGH RISK, while negative values pushes towards LOW RISK.
             </p>
