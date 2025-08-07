@@ -38,9 +38,9 @@ A full-stack machine learning web application that predicts the risk of loan def
 
 ## Installation
 
+```bash
 1. Clone the repository
 
-```bash
 git clone https://github.com/yourusername/loan-risk-predictor.git
 cd loan-risk-predictor
 
@@ -78,6 +78,5 @@ Sample Input Features
 Example Prediction Output
 	•	Low Risk (Likely to Repay) or High Risk (Likely to Default)
 	•	SHAP bar chart with feature contributions visualized
-
-
+```
 Did not focus more on the frontend part , this project was done just out of curiosity
